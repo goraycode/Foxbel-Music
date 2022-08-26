@@ -28,6 +28,24 @@ body {
   }
 }
 
+h2 {
+  color: var(--white);
+  font-weight: 700;
+  font-size: 1.375rem;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+  object-fit: cover;
+}
+
+.logo__img {
+  width: 15.625rem;
+  height: 3.688rem;
+}
+
 .aside {
   background-color: var(--darkSecondary);
 }
@@ -36,12 +54,6 @@ body {
   .aside {
     height: 90vh;
   }
-}
-
-.aside__title {
-  color: var(--white);
-  font-weight: 700;
-  font-size: 1.375rem;
 }
 
 .nav li {
@@ -60,9 +72,7 @@ body {
 .nav .nav__activado::before {
   content: "";
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: -1rem;
+  left: -1.2rem;
   background-color: var(--redPrincipal);
   width: 0.313rem;
   height: 1.25rem;
