@@ -5,8 +5,50 @@
   --softGray: #bdbdbd;
   --gray: #828282;
   --lightRed: #ff7676;
+  --white: #ffffff;
 }
 
 body {
   font-family: var(--typografy);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  body {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.nav {
+  background-color: var(--darkSecondary);
+}
+
+@media (min-width: 768px) {
+  .nav {
+    height: 90vh;
+  }
+}
+
+.nav__title {
+  color: var(--white);
+  font-weight: 700;
+  font-size: 1.375rem;
+}
+
+.main {
+  grid-column: 2 / 5;
+  border: 5px solid black;
+}
+
+.player {
+  grid-column: 1 / 5;
+  border: 5px solid rebeccapurple;
+}
+
+@media (min-width: 768px) {
+  .player {
+    height: 10vh;
+  }
 }
