@@ -8,6 +8,13 @@
   --white: #ffffff;
 }
 
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 body {
   font-family: var(--typografy);
   display: flex;
@@ -21,20 +28,44 @@ body {
   }
 }
 
-.nav {
+.aside {
   background-color: var(--darkSecondary);
 }
 
 @media (min-width: 768px) {
-  .nav {
+  .aside {
     height: 90vh;
   }
 }
 
-.nav__title {
+.aside__title {
   color: var(--white);
   font-weight: 700;
   font-size: 1.375rem;
+}
+
+.nav li {
+  list-style: none;
+}
+
+.nav a {
+  color: var(--white);
+}
+
+.nav .nav__activado {
+  color: var(--redPrincipal);
+  position: relative;
+}
+
+.nav .nav__activado::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -1rem;
+  background-color: var(--redPrincipal);
+  width: 0.313rem;
+  height: 1.25rem;
 }
 
 .main {
