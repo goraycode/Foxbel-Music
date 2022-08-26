@@ -40,12 +40,6 @@ img {
   height: auto;
   object-fit: cover;
 }
-
-.logo__img {
-  width: 15.625rem;
-  height: 3.688rem;
-}
-
 .aside {
   background-color: var(--darkSecondary);
 }
@@ -55,6 +49,28 @@ img {
     height: 90vh;
   }
 }
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.logo__img {
+  width: 15.625rem;
+  height: 3.688rem;
+}
+
+.options {
+  display: flex;
+  justify-content: space-around;
+}
+
+@media (min-width: 768px) {
+  .options {
+    flex-direction: column;
+  }
+}
+
 
 .nav li {
   list-style: none;
@@ -72,7 +88,7 @@ img {
 .nav .nav__activado::before {
   content: "";
   position: absolute;
-  left: -1.2rem;
+  left: -1rem;
   background-color: var(--redPrincipal);
   width: 0.313rem;
   height: 1.25rem;
