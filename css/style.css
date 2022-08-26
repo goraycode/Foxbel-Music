@@ -127,8 +127,47 @@ input[type="text"] {
   position: relative;
 }
 
+input[type="text"]:focus {
+  outline-color: var(--gray);
+}
+
 .user__icon {
   color: var(--redPrincipal);
+}
+
+.detail-video {
+  display: flex;
+  align-items: center;
+}
+.detail-video__img img {
+  height: 15.625rem;
+  width: 15.625rem;
+ 
+}
+
+.detail-video__banner {
+  height: 15.625rem;
+  background-image: linear-gradient(
+    0deg,
+    rgba(167, 0, 0, 0.7),
+    rgba(167, 0, 0, 0.7)
+  );
+}
+
+.info__follow {
+  color: var(--darkSecondary);
+}
+
+.btn {
+  width: 7.313rem;
+  border: 1px solid var(--redPrincipal);
+  color: var(--redPrincipal);
+  transition: background-color 250ms ease-in-out;
+}
+.btn:hover {
+  background-color: var(--redPrincipal);
+  color: var(--white);
+  font-weight: 400;
 }
 
 .player {
