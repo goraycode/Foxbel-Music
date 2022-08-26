@@ -140,9 +140,14 @@ input[type="text"]:focus {
   align-items: center;
 }
 .detail-video__img img {
-  height: 15.625rem;
-  width: 15.625rem;
- 
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .detail-video__img img {
+    height: 15.625rem;
+    width: 15.625rem;
+  }
 }
 
 .detail-video__banner {
