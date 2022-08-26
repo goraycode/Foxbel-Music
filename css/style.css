@@ -1,0 +1,12 @@
+:root {
+  --typografy: "Quicksand", sans-serif;
+  --redPrincipal: #e86060;
+  --darkSecondary: #662323;
+  --softGray: #bdbdbd;
+  --gray: #828282;
+  --lightRed: #ff7676;
+}
+
+body {
+  font-family: var(--typografy);
+}
