@@ -40,6 +40,11 @@ img {
   height: auto;
   object-fit: cover;
 }
+
+/*====================================================
+ASIDE
+======================================================*/
+
 .aside {
   background-color: var(--darkSecondary);
 }
@@ -71,7 +76,6 @@ img {
   }
 }
 
-
 .nav li {
   list-style: none;
 }
@@ -94,9 +98,37 @@ img {
   height: 1.25rem;
 }
 
+/*====================================================
+Main
+======================================================*/
+
 .main {
   grid-column: 2 / 5;
-  border: 5px solid black;
+}
+
+.search {
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .search {
+    width: 32.75rem;
+  }
+}
+
+.search__icon {
+  position: absolute;
+  right: 1rem;
+  color: var(--gray);
+}
+
+input[type="text"] {
+  border: 1px solid var(--gray);
+  position: relative;
+}
+
+.user__icon {
+  color: var(--redPrincipal);
 }
 
 .player {

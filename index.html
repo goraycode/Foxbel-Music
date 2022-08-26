@@ -64,11 +64,23 @@
         </div>
       </section>
     </aside>
-    <main class="main">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius rem quae
-      dolorum blanditiis? Fuga facere quis perferendis laboriosam. Aliquid quae
-      facilis sit dignissimos eius ratione illo vitae officia consectetur
-      deleniti!
+    <main class="main container my-5">
+      <header class="flex flex-col-reverse gap-2  md:flex-row justify-between">
+        <div class="search flex items-center">
+          <input
+            type="text"
+            name="search"
+            id="search"
+            class="rounded-3xl p-2 w-full"
+            placeholder="Buscar"
+          />
+          <i class="fa-solid fa-magnifying-glass search__icon"></i>
+        </div>
+        <div class="user flex items-center gap-2">
+          <i class="fa-solid fa-user user__icon"></i>
+          <p>Francisco M.</p>
+        </div>
+      </header>
     </main>
     <section class="player">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, illo
