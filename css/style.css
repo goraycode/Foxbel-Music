@@ -4,6 +4,7 @@
   --darkSecondary: #662323;
   --softGray: #bdbdbd;
   --gray: #828282;
+  --black: #555555;
   --lightRed: #ff7676;
   --white: #ffffff;
 }
@@ -173,6 +174,50 @@ input[type="text"]:focus {
   background-color: var(--redPrincipal);
   color: var(--white);
   font-weight: 400;
+}
+
+.gallery__title {
+  color: var(--redPrincipal);
+  line-height: 1.75rem;
+}
+
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.card {
+  width: 10rem;
+  height: 12.875rem;
+  background-image: url("../img/adele21.jpg");
+  background-size: 100% 80%;
+  background-repeat: no-repeat;
+  background-position: top;
+  position: relative;
+}
+
+.card__play {
+  position: absolute;
+  top: 40%;
+}
+
+.card__opts {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.card__title {
+  color: var(--black);
+  line-height: 1.125rem;
+}
+.card__author {
+  color: var(--gray);
+  line-height: 0.938rem;
 }
 
 .player {
