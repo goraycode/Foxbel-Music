@@ -52,7 +52,7 @@ ASIDE
 
 @media (min-width: 768px) {
   .aside {
-    height: 90vh;
+    min-height: 90vh;
   }
 }
 .logo {
