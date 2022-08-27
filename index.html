@@ -247,11 +247,35 @@
         </div>
       </section>
     </main>
-    <section class="player">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, illo
-      asperiores accusantium aliquam ut fuga. Maxime, aperiam eligendi!
-      Corrupti, excepturi nostrum. Totam cupiditate, nam aperiam animi vero
-      maxime debitis itaque.
+    <section class="player mt-5 md:mt-0">
+      <div class="player__img">
+        <img src="img/adele21.jpg" alt="" />
+      </div>
+      <div
+        class="player__rectangle flex justify-between items-center p-5 w-full"
+      >
+        <div class="player__info">
+          <p class="player__title text-white font-bold text-sm">Canción</p>
+          <p class="player__artist text-xs text-white">Artista-Álbum</p>
+        </div>
+        <div class="player__actions">
+          <button class="player__btn text-white">
+            <i class="fa-solid fa-backward-step"></i>
+          </button>
+          <button class="player__btn player__play text-white">
+            <i class="fa-solid fa-play"></i>
+          </button>
+          <button class="player__btn text-white">
+            <i class="fa-solid fa-forward-step"></i>
+          </button>
+        </div>
+        <div class="player__sound flex items-center gap-5 justify-center">
+          <input type="range" name="volume" id="volume" />
+          <div class="text-white">
+            <i class="fa-solid fa-volume-off fa-xl"></i>
+          </div>
+        </div>
+      </div>
     </section>
   </body>
 </html>
