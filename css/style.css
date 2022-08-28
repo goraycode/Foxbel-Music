@@ -167,11 +167,9 @@ input[type="text"]:focus {
 
 .detail-video__banner {
   height: 15.625rem;
-  background-image: linear-gradient(
-    0deg,
-    rgba(167, 0, 0, 0.7),
-    rgba(167, 0, 0, 0.7)
-  );
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .info__follow {
@@ -207,7 +205,6 @@ input[type="text"]:focus {
 .card {
   width: 10rem;
   height: 12.875rem;
-  background-image: url("../img/adele21.jpg");
   background-size: 100% 80%;
   background-repeat: no-repeat;
   background-position: top;
