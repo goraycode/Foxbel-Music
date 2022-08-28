@@ -1,5 +1,5 @@
 const detailVideo = document.querySelector('.detail-video');
-const galleryGrid = document.querySelector('.galleryGrid');
+const galleryGrid = document.querySelector('.gallery__grid');
 
 function banner(data) {
 
@@ -92,11 +92,46 @@ function designBanner(imgAlbum, album, artist, photoArtist) {
 
 
 function galleryVideos(data) {
-    
+
+    limpiarHTML();
+    data.forEach(song => {
+        const { album: { cover_medium, title }, artist: { name } } = song;
+
+        const divCard = document.createElement('div');
+        divCard.className = 'card flex items-end';
+        divCard.style.backgroundImage = `url("${cover_medium}")`;
+
+        const cardInfo = document.createElement('div');
+        cardInfo.className = 'card__info';
+        cardInfo.innerHTML = `
+        <p class="card__title font-bold text-sm">${title.slice(0, 20)}</p>
+        <p class="card__author">${name.slice(0, 20)}</p>`;
+
+
+        const cardButtonPlay = document.createElement('button');
+        cardButtonPlay.className = 'card__play w-full';
+        cardButtonPlay.innerHTML = `<i class="fa-solid fa-play text-white text-4xl"></i>`;
+
+        const cardButtonOpt = document.createElement('button');
+        cardButtonOpt.className = 'card__opts pr-1';
+        cardButtonOpt.innerHTML = `<i class="fa-solid fa-ellipsis-vertical text-white"></i>`;
+
+        divCard.appendChild(cardInfo);
+        divCard.appendChild(cardButtonPlay);
+        divCard.appendChild(cardButtonOpt);
+
+
+        galleryGrid.appendChild(divCard);
+
+
+    });
 }
 
-
-
+function limpiarHTML() {
+    while (galleryGrid.firstChild) {
+        galleryGrid.removeChild(galleryGrid.firstChild);
+    }
+}
 
 
 

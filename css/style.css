@@ -205,7 +205,6 @@ input[type="text"]:focus {
 .card {
   width: 10rem;
   height: 12.875rem;
-  background-image: url("../img/adele21.jpg");
   background-size: 100% 80%;
   background-repeat: no-repeat;
   background-position: top;
