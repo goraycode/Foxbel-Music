@@ -1,5 +1,7 @@
 const detailVideo = document.querySelector('.detail-video');
 const galleryGrid = document.querySelector('.gallery__grid');
+const playerPlay = document.querySelector('.player__play');
+const volume = document.querySelector('#volume');
 
 
 function banner(data) {
@@ -65,7 +67,9 @@ function designBanner(data) {
     btnPlay.className = 'btn btn_play rounded-2xl text-sm px-2 py-1';
     btnPlay.textContent = 'Reproducir';
     const music = new Audio(preview);
-    btnPlay.onclick = () => togglePlay(music);
+    btnPlay.onclick = () => togglePlay(music, data);
+    playerPlay.onclick = () => togglePlay(music, data);
+    volume.addEventListener('change', (e) => changeVolume(e, music));
 
 
     const btnSeguir = document.createElement('button');
@@ -96,14 +100,35 @@ function designBanner(data) {
 
 
 
-function togglePlay(music) {
+function togglePlay(music, data) {
+    const { album: { title }
+        , artist: { name, picture_medium } } = data;
+
+    const playerImg = document.querySelector('.player__img');
+    playerImg.innerHTML = `<img src="${picture_medium}">`;
+
+    const playerTitle = document.querySelector('.player__title');
+    playerTitle.textContent = title;
+    const playerArtist = document.querySelector('.player__artist');
+    playerArtist.textContent = name;
+
 
     if (music.paused) {
         music.play();
+        playerPlay.innerHTML = `<i class="fa-solid fa-play"></i>`;
     } else {
         music.pause();
+        playerPlay.innerHTML = `<i class="fa-solid fa-pause"></i>`;
     }
 }
+
+function changeVolume(e, music) {
+    const valueVol = e.target.value;
+    music.volume = valueVol;
+}
+
+
+
 
 
 
