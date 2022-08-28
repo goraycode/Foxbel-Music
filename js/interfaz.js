@@ -4,6 +4,42 @@ const playerPlay = document.querySelector('.player__play');
 const volume = document.querySelector('#volume');
 
 
+function togglePlay(music, data) {
+
+
+
+    const { id, album: { cover_medium, title }
+        , artist: { name } } = data;
+
+    let actualId = id;
+
+    const playerImg = document.querySelector('.player__img');
+    playerImg.innerHTML = `<img src="${cover_medium}">`;
+
+    const playerTitle = document.querySelector('.player__title');
+    playerTitle.textContent = title;
+    const playerArtist = document.querySelector('.player__artist');
+    playerArtist.textContent = name;
+
+
+    if (music.paused) {
+        music.play();
+        console.log(actualId);
+        playerPlay.innerHTML = `<i class="fa-solid fa-pause"></i>`;
+    } else {
+        console.log(id)
+        music.pause();
+        playerPlay.innerHTML = `<i class="fa-solid fa-play"></i>`;
+    }
+}
+
+
+function changeVolume(e, music) {
+    const valueVol = e.target.value;
+    console.log(valueVol)
+    music.volume = valueVol;
+}
+
 function banner(data) {
     for (let i = 0; i < 1; i++) {
         designBanner(data[i]);
@@ -52,7 +88,8 @@ function designBanner(data) {
 
     const pBiografy = document.createElement('p');
     pBiografy.className = 'text-white mt-5 text-xs';
-    pBiografy.textContent = ' Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit,itaque dolorem optio porro maiores illo labore amet sunt, cumque ullam ipsa reprehenderit quisquam? A laudantium aut pariatur ipsum repudiandae ab.';
+    pBiografy.textContent = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit,itaque dolorem optio porro maiores 
+    illo labore amet sunt, cumque ullam ipsa reprehenderit quisquam? A laudantium aut pariatur ipsum repudiandae ab.`;
 
 
     divInfo.appendChild(pAlbum);
@@ -69,7 +106,7 @@ function designBanner(data) {
     const music = new Audio(preview);
     btnPlay.onclick = () => togglePlay(music, data);
     playerPlay.onclick = () => togglePlay(music, data);
-    volume.addEventListener('change', (e) => changeVolume(e, music));
+    volume.addEventListener('change', (e) => changeVolume(e, music))
 
 
     const btnSeguir = document.createElement('button');
@@ -100,43 +137,12 @@ function designBanner(data) {
 
 
 
-function togglePlay(music, data) {
-    const { album: { title }
-        , artist: { name, picture_medium } } = data;
-
-    const playerImg = document.querySelector('.player__img');
-    playerImg.innerHTML = `<img src="${picture_medium}">`;
-
-    const playerTitle = document.querySelector('.player__title');
-    playerTitle.textContent = title;
-    const playerArtist = document.querySelector('.player__artist');
-    playerArtist.textContent = name;
-
-
-    if (music.paused) {
-        music.play();
-        playerPlay.innerHTML = `<i class="fa-solid fa-play"></i>`;
-    } else {
-        music.pause();
-        playerPlay.innerHTML = `<i class="fa-solid fa-pause"></i>`;
-    }
-}
-
-function changeVolume(e, music) {
-    const valueVol = e.target.value;
-    music.volume = valueVol;
-}
-
-
-
-
-
-
 function galleryVideos(data) {
 
     limpiarHTML();
     data.forEach(song => {
-        const { album: { cover_medium, title }, artist: { name } } = song;
+        const { album: { cover_medium, title }, artist: { name }, preview } = song;
+
 
         const divCard = document.createElement('div');
         divCard.className = 'card flex items-end';
@@ -152,6 +158,23 @@ function galleryVideos(data) {
         const cardButtonPlay = document.createElement('button');
         cardButtonPlay.className = 'card__play w-full';
         cardButtonPlay.innerHTML = `<i class="fa-solid fa-play text-white text-4xl"></i>`;
+        const music = new Audio(preview);
+        cardButtonPlay.onclick = () => {
+            if (music.paused) {
+
+                cardButtonPlay.innerHTML = `<i class="fa-solid fa-pause text-white text-4xl"></i>`;
+            } else {
+
+                cardButtonPlay.innerHTML = `<i class="fa-solid fa-play text-white text-4xl"></i>`;
+            }
+
+            togglePlay(music, song)
+        };
+        //playerPlay.onclick = () => togglePlay(music, song);
+
+        volume.addEventListener('change', (e) => changeVolume(e, music))
+
+
 
         const cardButtonOpt = document.createElement('button');
         cardButtonOpt.className = 'card__opts pr-1';
@@ -164,7 +187,6 @@ function galleryVideos(data) {
 
         galleryGrid.appendChild(divCard);
 
-
     });
 }
 
@@ -173,6 +195,9 @@ function limpiarHTML() {
         galleryGrid.removeChild(galleryGrid.firstChild);
     }
 }
+
+
+
 
 
 
