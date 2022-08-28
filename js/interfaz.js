@@ -1,16 +1,17 @@
 const detailVideo = document.querySelector('.detail-video');
 const galleryGrid = document.querySelector('.gallery__grid');
 
+
 function banner(data) {
-
     for (let i = 0; i < 1; i++) {
-        const { album: { cover_big, title },
-            artist: { name, picture_medium } } = data[i];
-
-        designBanner(cover_big, title, name, picture_medium);
+        designBanner(data[i]);
     }
 }
-function designBanner(imgAlbum, album, artist, photoArtist) {
+function designBanner(data) {
+    const { album: { cover_big, title },
+        artist: { name, picture_medium },
+        preview } = data;
+
 
     const contenedor = document.createElement('div');
     contenedor.className = 'contenedorbanner my-5 flex flex-col md:flex-row';
@@ -23,26 +24,26 @@ function designBanner(imgAlbum, album, artist, photoArtist) {
     const divImg = document.createElement('div');
     divImg.className = 'detail-video__img';
     const imgArtist = document.createElement('img');
-    imgArtist.src = photoArtist;
+    imgArtist.src = picture_medium;
     imgArtist.alt = 'detail-video';
     divImg.appendChild(imgArtist);
 
 
     const divBanner = document.createElement('div');
     divBanner.className = 'detail-video__banner flex flex-col justify-between';
-    divBanner.style.backgroundImage = `linear-gradient(0deg, rgba(167, 0, 0, 0.7), rgba(167, 0, 0, 0.7)), url("${imgAlbum}")`;
+    divBanner.style.backgroundImage = `linear-gradient(0deg, rgba(167, 0, 0, 0.7), rgba(167, 0, 0, 0.7)), url("${cover_big}")`;
 
     const divInfo = document.createElement('div');
     divInfo.className = 'info container mt-8 mb-2';
 
     const pAlbum = document.createElement('p');
     pAlbum.className = 'text-white text-xl font-bold';
-    pAlbum.textContent = album;
+    pAlbum.textContent = title;
 
     const divInfoSmall = document.createElement('div');
     divInfoSmall.className = 'info__small flex items-center gap-4';
     const pSmall = document.createElement('p');
-    pSmall.textContent = `Lo mejor de ${artist}`;
+    pSmall.textContent = `Lo mejor de ${name}`;
 
     divInfoSmall.appendChild(pSmall);
 
@@ -61,11 +62,14 @@ function designBanner(imgAlbum, album, artist, photoArtist) {
     divButtons.className = 'buttons container flex gap-5 items-center mb-5';
 
     const btnPlay = document.createElement('button');
-    btnPlay.className = 'btn btn__activado rounded-2xl text-sm px-2 py-1';
+    btnPlay.className = 'btn btn_play rounded-2xl text-sm px-2 py-1';
     btnPlay.textContent = 'Reproducir';
+    const music = new Audio(preview);
+    btnPlay.onclick = () => togglePlay(music);
+
 
     const btnSeguir = document.createElement('button');
-    btnSeguir.className = 'btn btn__activado rounded-2xl text-sm px-2 py-1';
+    btnSeguir.className = 'btn rounded-2xl text-sm px-2 py-1';
     btnSeguir.textContent = 'Seguir';
 
     const btnMore = document.createElement('button');
@@ -89,6 +93,18 @@ function designBanner(imgAlbum, album, artist, photoArtist) {
     detailVideo.appendChild(contenedor);
 
 }
+
+
+
+function togglePlay(music) {
+
+    if (music.paused) {
+        music.play();
+    } else {
+        music.pause();
+    }
+}
+
 
 
 function galleryVideos(data) {
@@ -132,6 +148,7 @@ function limpiarHTML() {
         galleryGrid.removeChild(galleryGrid.firstChild);
     }
 }
+
 
 
 
