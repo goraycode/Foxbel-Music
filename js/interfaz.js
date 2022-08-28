@@ -8,16 +8,16 @@ function togglePlay(music, data) {
 
 
 
-    const { album: { cover_medium, title }
-        , artist: { name } } = data;
+    const { title, album, artist } = data;
+    console.log(data)
 
     const playerImg = document.querySelector('.player__img');
-    playerImg.innerHTML = `<img src="${cover_medium}">`;
+    playerImg.innerHTML = `<img src="${album.cover_medium}">`;
 
     const playerTitle = document.querySelector('.player__title');
     playerTitle.textContent = title;
     const playerArtist = document.querySelector('.player__artist');
-    playerArtist.textContent = name;
+    playerArtist.textContent = `${artist.name} - ${album.title}`;
 
 
     if (music.paused) {
