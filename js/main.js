@@ -10,4 +10,4 @@ function getInfo() {
 
 
 
-inputSearch.addEventListener('blur', getInfo);
+inputSearch.addEventListener('keyup', getInfo);

@@ -8,10 +8,8 @@ function togglePlay(music, data) {
 
 
 
-    const { id, album: { cover_medium, title }
+    const { album: { cover_medium, title }
         , artist: { name } } = data;
-
-    let actualId = id;
 
     const playerImg = document.querySelector('.player__img');
     playerImg.innerHTML = `<img src="${cover_medium}">`;
@@ -24,10 +22,10 @@ function togglePlay(music, data) {
 
     if (music.paused) {
         music.play();
-        console.log(actualId);
+
         playerPlay.innerHTML = `<i class="fa-solid fa-pause"></i>`;
     } else {
-        console.log(id)
+
         music.pause();
         playerPlay.innerHTML = `<i class="fa-solid fa-play"></i>`;
     }
